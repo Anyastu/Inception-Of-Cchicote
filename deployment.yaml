@@ -18,9 +18,11 @@ spec:
         app: app-one
         task: app-one
     spec:
+      hostNetwork: true
       containers:
         - name: app-one
           image: wil42/playground:v1
           ports:
             - containerPort: 8888
+          
 ---
