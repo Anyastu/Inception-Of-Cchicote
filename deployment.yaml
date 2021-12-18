@@ -1,0 +1,33 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: app-one
+  labels:
+    app: app-one
+    name: app-one
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-one
+      task: app-one
+  template:
+    metadata:
+      labels:
+        app: app-one
+        task: app-one
+    spec:
+      containers:
+        - name: app-one
+          image: wil42/playground:v1
+          ports:
+            - containerPort: 8888
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html/
+              name: config-volumes
+      volumes:
+        - name: config-volumes
+          configMap:
+            name: cm-app-one
+---
