@@ -23,11 +23,4 @@ spec:
           image: wil42/playground:v2
           ports:
             - containerPort: 8888
-          volumeMounts:
-            - mountPath: /usr/share/nginx/html/
-              name: config-volumes
-      volumes:
-        - name: config-volumes
-          configMap:
-            name: cm-app-one
 ---
