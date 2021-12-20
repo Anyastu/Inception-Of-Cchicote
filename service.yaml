@@ -11,5 +11,6 @@ spec:
   selector:
     app: app-one
     task: app-one
+  type: LoadBalancer
 ---
 
